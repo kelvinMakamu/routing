@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 *{
     border-radius: unset !important;
+    letter-spacing: 1.5px !important;
 }
 body{
     background-color:#eee !important;
