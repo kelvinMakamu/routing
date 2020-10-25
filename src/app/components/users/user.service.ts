@@ -6,7 +6,7 @@ import { User } from '../../interfaces/user';
 })
 export class UserService {
 
-  private users: User[] = [
+  private _users: User[] = [
     {
         "id": 1,
         "name": "Leanne Graham",
@@ -91,7 +91,11 @@ export class UserService {
   ];
   
   getUsers(): User[] {
-    return this.users;
+    return this._users;
+  }
+
+  getUserById(id: number): User {
+    return this._users.find(user => user.id === id);
   }
 
   constructor() { }
