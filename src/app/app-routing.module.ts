@@ -7,6 +7,8 @@ import { UsersComponent } from './components/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserNotFoundComponent } from './components/user-not-found/user-not-found.component';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { ConfirmationGuard } from './guards/confirmation/confirmation.guard';
+import { MessageListComponent } from './components/message-list/message-list.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent  },
@@ -14,13 +16,14 @@ const routes: Routes = [
   { path: 'blog',  component: BlogComponent, canActivate:[AuthGuard] },
   { path: 'users', component: UsersComponent, canActivateChild:[AuthGuard], children: [
     { path : ':id', component: UserDetailComponent },
-    // { path : '', component: UserNotFoundComponent }
+    { path : '', component: UserNotFoundComponent }
   ] },
+  { path: 'messages', component: MessageListComponent, canDeactivate: [ConfirmationGuard] },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
-  providers: [AuthGuard],
+  providers: [ AuthGuard, ConfirmationGuard ],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
