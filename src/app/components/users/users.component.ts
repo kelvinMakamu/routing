@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user';
 // import { UserService } from './user.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-users',
@@ -12,11 +13,14 @@ export class UsersComponent implements OnInit {
 
 users: User[];
 
-constructor(private activatedRoute: ActivatedRoute) { }
+constructor(private activatedRoute: ActivatedRoute,private userService: UserService) { }
 
 ngOnInit(): void {
   // this.users = this.userService.getUsers();
-  this.activatedRoute.data.forEach(data => this.users = data.users);
+  //this.activatedRoute.data.forEach(data => this.users = data.users);
+  this.userService.getUserViaREST().subscribe(users=>{
+    this.users = users
+  });
 }
 
 }
