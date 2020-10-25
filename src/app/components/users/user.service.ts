@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private _baseUrl:string = "http://jsonplaceholder.typicode.com/users";
+  private _baseUrl:string = "//jsonplaceholder.typicode.com/users";
 
   private _users: any;
   
