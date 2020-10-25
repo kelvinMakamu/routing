@@ -12,8 +12,8 @@
         <div class="col-md-12 col-lg-12 col-sm-12">
           <h5 class="card-title">Professional</h5>
           <h6>Username: {{ user.username}}</h6>
-          <h6>Email:    {{ user.email   }}</h6>
-          <h6>Website:  {{ user.website }}</h6>
+          <h6>Email:    {{ user.email | lowercase  }}</h6>
+          <h6>Website:  {{ user.website | lowercase }}</h6>
           <h6>Company:  {{ user.company.name }}</h6>
           <h6>Business: {{ user.company.bs | titlecase}}</h6>
           <hr>
