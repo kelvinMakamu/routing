@@ -10,22 +10,22 @@ export class UserService {
 
   private _baseUrl:string = "http://jsonplaceholder.typicode.com/users";
 
-  private _users: User[];
+  private _users: any;
   
-  getUsers(): User[] {
+  getUsers(): any {
     return this._users;
   }
   
-  getUserViaREST(): Observable<User[]>{
-    return this.httpClient.get<User[]>(this._baseUrl);
+  getUserViaREST(): Observable<any>{
+    return this.httpClient.get<any>(this._baseUrl);
   }
 
   getUserById(id: number): User {
     return this._users.find(user => user.id === id);
   }
 
-  getUserByIdViaREST(id: number): Observable<User[]>{
-    return this.httpClient.get<User[]>(`${this._baseUrl}/${id}`);
+  getUserByIdViaREST(id: number): Observable<any>{
+    return this.httpClient.get<any>(`${this._baseUrl}/${id}`);
   }
 
   constructor(private httpClient: HttpClient) { }
