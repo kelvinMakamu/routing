@@ -46,4 +46,4 @@
     </div>
 </div>
 
-<pre>{{ posts | async | json }}</pre>
+<pre *ngIf='posts'><div class="card"> {{  posts | async | json }} </div></pre>
