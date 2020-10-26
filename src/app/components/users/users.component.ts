@@ -18,7 +18,7 @@ constructor(private activatedRoute: ActivatedRoute,private userService: UserServ
 ngOnInit(): void {
   // this.users = this.userService.getUsers();
   //this.activatedRoute.data.forEach(data => this.users = data.users);
-  this.userService.getUserViaREST().subscribe(users=>{
+  this.userService.getUsers().subscribe(users=>{
     this.users = users
   });
 }

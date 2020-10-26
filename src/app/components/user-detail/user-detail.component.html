@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
           <h5 class="card-title">Personal</h5>
-          <h6>Full Name:    {{ user.name  }}</h6>
+          <h6>Full Name:    {{ user.name | titlecase }}</h6>
           <h6>Mobile Phone: {{ user.phone }}</h6>
           <hr>
         </div>
@@ -12,7 +12,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12">
           <h5 class="card-title">Professional</h5>
           <h6>Username: {{ user.username}}</h6>
-          <h6>Email:    {{ user.email | lowercase  }}</h6>
+          <h6>Email:    {{ user.email   | lowercase  }}</h6>
           <h6>Website:  {{ user.website | lowercase }}</h6>
           <h6>Company:  {{ user.company.name }}</h6>
           <h6>Business: {{ user.company.bs | titlecase}}</h6>
@@ -31,17 +31,19 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-lg-3 col-sm-12">
-          <button class="btn btn-success">Create</button>
+          <button class="btn btn-success" (click)='createUser()'>Create</button>
         </div>
         <div class="col-md-3 col-lg-3 col-sm-12">
-          <button class="btn btn-primary">Update</button>
+          <button class="btn btn-primary" (click)='updateUser()'>Update</button>
         </div>
         <div class="col-md-3 col-lg-3 col-sm-12">
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger" (click)='deleteUser()'>Delete</button>
         </div>
         <div class="col-md-3 col-lg-3 col-sm-12">
-          <button class="btn btn-warning">Get Posts</button>
+          <button class="btn btn-warning" (click)='getUserPosts()'>Get Posts</button>
         </div>
       </div>
     </div>
 </div>
+
+<pre>{{ posts | async | json }}</pre>

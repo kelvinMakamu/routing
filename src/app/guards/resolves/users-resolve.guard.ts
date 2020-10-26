@@ -13,8 +13,11 @@ export class UsersResolveGuard implements Resolve<User[]> {
 
   resolve(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): User[] {
-    return this.userService.getUsers();
+    state: RouterStateSnapshot): any {
+    this.userService.getUsers().subscribe(
+      (users) => {
+       return users;
+    });
   }
   
 }
